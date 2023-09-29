@@ -14,11 +14,16 @@ public class Main {
         int medium = service.averageSales(stat);
         int min = service.minSales(stat);
         int max = service.maxSales(stat);
+        int minDay = service.minStat(stat);
+        int maxDay = service.maxStat(stat);
 
 
-        System.out.println("Сумма всех продаж" + "-" + amount + " " +
-                " " + "Продаж в среднем" + "-" + medium + " " +
-                "Месяц минимальных продаж" + "-" + min + " " + max);
+        System.out.println("Сумма всех продаж" + "-" + amount +
+                "   " + "Продаж в среднем" + "-" + medium + "   " +
+                "Месяц минимальных продаж" + "-" + min + "   " +
+                "Месяц максимальных продаж" + "-" + max + "   " +
+                "Месяцы ниже среднего" + "-" + minDay +
+                "   " + "Месяцы выше среднего" + "-" + maxDay);
 
 
     }

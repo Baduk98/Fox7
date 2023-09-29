@@ -4,7 +4,11 @@ public class StatsService {
 
     public int totalSales(int[] stat) {
 
-        int sum = stat[0] + stat[1] + stat[2] + stat[3] + stat[4] + stat[5] + stat[6] + stat[7] + stat[8] + stat[9] + stat[10] + stat[11];
+        int sum = 0;
+        for (int elements : stat) {
+
+            sum += elements;
+        }
 
         return sum;
 
@@ -13,17 +17,21 @@ public class StatsService {
 
     public int averageSales(int[] stat) {
 
-        int average = totalSales(stat) / 12;
+        int average = totalSales(stat) / stat.length;
         return average;
     }
 
     public int maxSales(int[] stat) {
-        int maxMonth = stat[0];
+        int maxSale = stat[0];
+        int maxMonth = 0;
 
-        for (int i = 1; i < stat.length; i++) {
-            if (stat[i] >= maxMonth) {
-                maxMonth = stat[i];
+        for (int i = 0; i < stat.length; i++) {
+            if (stat[i] >= maxSale) {
+                maxSale = stat[i];
+                maxMonth = i;
             }
+
+
         }
 
         return maxMonth + 1;
@@ -40,6 +48,35 @@ public class StatsService {
 
         return minMonth + 1;
     }
+
+    public int minStat(int[] stat) {
+
+        int middle = averageSales(stat); // 15
+        int month = 0;
+
+        for (int element : stat) {
+            if (element < middle) {
+                month = month + 1;
+            }
+
+
+        }
+        return month;
+
+
+    }
+    public int maxStat(int[] stat) {
+        int mid = averageSales(stat);
+        int count = 0;
+
+        for (int element : stat) {
+            if (element > mid) {
+                count++;
+            }
+        }
+        return count;
+    }
+
 
 
 }
